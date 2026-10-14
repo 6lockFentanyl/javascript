@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contador</title>
+  <style>body { font-family: Arial, sans-serif; padding: 2rem; } button { margin-right: .5rem; }</style>
+</head>
+<body>
+  <h1>Contador</h1>
+  <p>Valor: <span id="valor">0</span></p>
+  <button id="incrementar">Adicionar 1</button>
+  <button id="zerar">Zerar</button>
+  <script>
+    let contador = 0;
+    const valor = document.querySelector("#valor");
+
+    document.querySelector("#incrementar").addEventListener("click", () => {
+      contador++;
+      valor.textContent = contador;
+    });
+
+    document.querySelector("#zerar").addEventListener("click", () => {
+      contador = 0;
+      valor.textContent = contador;
+    });
+  </script>
+</body>
+</html>

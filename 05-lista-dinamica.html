@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista dinâmica</title>
+</head>
+<body>
+  <h1>Itens da lista</h1>
+  <button id="adicionar">Adicionar item</button>
+  <ol id="lista"></ol>
+  <script>
+    const lista = document.querySelector("#lista");
+    const botao = document.querySelector("#adicionar");
+
+    botao.addEventListener("click", () => {
+      const numero = lista.children.length + 1;
+      const item = document.createElement("li");
+      item.textContent = `Item n° ${numero}`;
+      lista.appendChild(item);
+    });
+  </script>
+</body>
+</html>

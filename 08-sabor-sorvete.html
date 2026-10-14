@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sabor de sorvete</title>
+  <style>body { font-family: Arial, sans-serif; padding: 2rem; } input { padding: .5rem; }</style>
+</head>
+<body>
+  <h1>Qual é seu sabor de sorvete?</h1>
+  <label for="sabor">Digite um sabor:</label>
+  <input id="sabor" type="text" placeholder="Ex.: chocolate">
+  <p id="resposta" aria-live="polite">Digite um sabor com mais de 3 letras.</p>
+  <script>
+    const campo = document.querySelector("#sabor");
+    const resposta = document.querySelector("#resposta");
+
+    campo.addEventListener("input", () => {
+      const texto = campo.value.trim().toLowerCase();
+
+      if (texto.length <= 3) {
+        resposta.textContent = "Digite um sabor com mais de 3 letras.";
+      } else if (texto.includes("chocolate")) {
+        resposta.textContent = "Eu amo sorvete de chocolate!";
+      } else if (texto.includes("flocos")) {
+        resposta.textContent = "Ahh, mas chocolate é o meu favorito...";
+      } else {
+        resposta.textContent = "Ahh, eu esperava um sabor de sorvete...";
+      }
+    });
+  </script>
+</body>
+</html>

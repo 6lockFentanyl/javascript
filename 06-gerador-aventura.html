@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerador de nome de aventura</title>
+  <style>body { font-family: Arial, sans-serif; padding: 2rem; } #resultado { font-size: 1.4rem; font-weight: bold; }</style>
+</head>
+<body>
+  <h1>Gerador de aventura</h1>
+  <button id="gerar">Gerar nova aventura</button>
+  <p id="resultado">Clique no botão para descobrir sua aventura!</p>
+  <script>
+    const acoes = ["A Busca", "A Batalha", "O Resgate", "A Jornada", "O Mistério"];
+    const locais = ["na Floresta Sombria", "no Reino Perdido", "na Montanha Misteriosa", "nas Ruínas Antigas"];
+    const complementos = ["do Dragão", "do Tesouro Esquecido", "da Espada Ancestral", "dos Sete Portais"];
+
+    function sortear(lista) {
+      return lista[Math.floor(Math.random() * lista.length)];
+    }
+
+    document.querySelector("#gerar").addEventListener("click", () => {
+      document.querySelector("#resultado").textContent =
+        `${sortear(acoes)} ${sortear(locais)} ${sortear(complementos)}`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personagem interativo — Gravity Falls</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 2rem; }
+    img { width: 240px; max-width: 90%; border-radius: 12px; cursor: pointer; }
+    #fala { min-height: 2rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Personagem interativo de Gravity Falls</h1>
+  <p>Passe o mouse, mova-o sobre a imagem ou clique nela.</p>
+  <img id="personagem"
+       src="https://upload.wikimedia.org/wikipedia/en/4/4f/Dipper_Pines.png"
+       alt="Dipper Pines, personagem de Gravity Falls">
+  <p id="fala">Dipper: Estou pronto para investigar!</p>
+  <button id="trocar">Trocar personagem</button>
+  <script>
+    const imagem = document.querySelector("#personagem");
+    const fala = document.querySelector("#fala");
+    let mabelAtiva = false;
+
+    imagem.addEventListener("mouseenter", () => {
+      fala.textContent = "Dipper: Tem algo estranho acontecendo por aqui...";
+    });
+    imagem.addEventListener("mouseleave", () => {
+      fala.textContent = "Dipper: Fique de olho nos mistérios!";
+    });
+    imagem.addEventListener("mousemove", () => {
+      fala.textContent = "Dipper: Estou seguindo as pistas!";
+    });
+    imagem.addEventListener("click", () => {
+      fala.textContent = "Dipper: Encontrei uma pista importante!";
+    });
+
+    document.querySelector("#trocar").addEventListener("click", () => {
+      mabelAtiva = !mabelAtiva;
+      if (mabelAtiva) {
+        imagem.src = "https://upload.wikimedia.org/wikipedia/en/2/26/Mabel_Pines.png";
+        imagem.alt = "Mabel Pines, personagem de Gravity Falls";
+        fala.textContent = "Mabel: Vamos resolver esse mistério com glitter!";
+      } else {
+        imagem.src = "https://upload.wikimedia.org/wikipedia/en/4/4f/Dipper_Pines.png";
+        imagem.alt = "Dipper Pines, personagem de Gravity Falls";
+        fala.textContent = "Dipper: Estou pronto para investigar!";
+      }
+    });
+  </script>
+</body>
+</html>
